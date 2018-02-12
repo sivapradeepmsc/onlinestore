@@ -1,0 +1,94 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: green;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: green;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: green;
+  color: green;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; 
+}
+
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 6px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a href="#Home"><%= link_to 'Home', welcome_index_path%></a>
+  <a href="#Products"><%= link_to 'products', articles_path %></a>
+  <a href="#Customer"><%= link_to 'Add_New_Products', new_article_path %></a>
+  <a href=""> updates</a>
+  <a href="#Other services">Add Cart details</a>
+  <a href="#sign up">sign up</a>
+ 
+<input type="text" placeholder="What u want?">
+</div>
+<table  align="center">
+<th>
+
+<h2>Add Your Reviews:</h2>
+<%= render 'comments/form' %>
+<p>
+  <strong>Product:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Model_name:</strong>
+  <%= @article.text %>
+</p>
+ 
+<h2>Reviews</h2>
+<%= render @article.comments %>
+
+  <div class="field">
+    
+ 
+    <% if @public.image? %>
+      <%= image_tag @public.image.url(:thumb) %>
+      
+    <% end %>
+
+
+ 
+<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+  <% end %>
+ 
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %></th>
+</table>
+  </body>
+</html>
