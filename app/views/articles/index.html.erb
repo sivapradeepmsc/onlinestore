@@ -68,7 +68,8 @@ body {margin:0;}
     <tr>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
-    <td><%=article.image.url(:thumb) %></td>
+    <td> <%= image_tag article.image.url%></td>
+    
     <td><%= link_to 'Give rate', article_path(article) %></td>
     <td> <%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Destroy', article_path(article),

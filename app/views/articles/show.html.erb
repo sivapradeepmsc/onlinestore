@@ -76,16 +76,16 @@ body {margin:0;}
 
   <div class="field">
     
+    <%= link_to image_tag(@article.image.url(:medium)), @article.image.url %>
  
-    <% if @public.image? %>
-      <%= image_tag @public.image.url(:thumb) %>
+   
+      <%= image_tag @article.image.url %>
+
       
-    <% end %>
+    
 
 
  
-<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
-  <% end %>
  
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %></th>

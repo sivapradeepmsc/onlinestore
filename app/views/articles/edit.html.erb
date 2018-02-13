@@ -102,6 +102,7 @@
 
 
 <body bgcolor="#eee">
+  <%= form_for @article, url: articles_path, html: { multipart: true } do |form| %>
 <%= form_with(model: @article) do |form| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -135,7 +136,7 @@
   </p>
  
 <% end %>
- 
+ <% end %>
 <%= link_to 'Back', articles_path %>		
 </div>
 </body>

@@ -4,9 +4,15 @@ class Article < ApplicationRecord
                     length: { minimum: 5 }
                     
 
-  has_attached_file :image, styles: {large: "600x600", medium: "300x300>", thumb: "150x150#" }
-                     #:url =>"/:public/:system/:articles//:images/:000/:000/:015/:orginal/:basename:extension",
-                     #:path =>"/:rails_roots/public/articles/images/:000/:000/:015/:orginal/:basename:extension",
+  has_attached_file :image,default_url:'missing.png', :styles => {:orginal =>'300x300', :thumb =>'200x200'},
+	                 :path => ":rails_root/public/system/users/images/:id/:style/:filename",
+     :url => "/system/users/images/:id/:style/:filename"            
+ 					#:path => ':rails_root/public/system/:class/:id/:style/:filename',
+                    #:url => '/system/:class/:id/:style/:filename'
+	                  
+                    
+  
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  do_not_validate_attachment_file_type :image
+  
 end
+

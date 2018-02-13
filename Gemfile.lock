@@ -207,7 +207,7 @@ DEPENDENCIES
   devise (~> 4.4, >= 4.4.1)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  paperclip (~> 5.2, >= 5.2.1)
+  paperclip
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
