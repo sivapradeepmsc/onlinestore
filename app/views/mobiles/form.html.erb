@@ -1,0 +1,45 @@
+<%= form_with model: @mobile, local: true do |form| %>
+ 
+  <% if @mobile.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@mobile.errors.count, "error") %> prohibited
+        this Data from being saved:
+      </h2>
+      <ul>
+        <% @mobile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.text_field :phone%>
+  </p>
+ 
+  <p>
+    <%= form.label :mtype %><br>
+    <%= form.text_area :mtype %>
+  </p>
+  
+  <p>
+    <%= form.label :image %><br>
+    <%= form.file.field :image %>
+  </p>
+
+  <p>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+  </p>
+
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :text %>
+  </p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>

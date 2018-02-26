@@ -1,0 +1,32 @@
+ <%= form_with(model:[ @pice, @pice.pens.build ]) do |form| %>
+ 
+ <b>Phone name:</b>
+<a><%= @pice.phone %></a> <br>
+<b>Price:</b>
+<a><%= @pice.price %></td><br>
+ <b> feautres:</b>
+<td><%= @pice.description %></td><br>
+<b>Phone_model:</b>
+<td><%= @pice.mtype %></td>  </a></p>
+
+</div>   
+
+   <p>
+    <%= form.label :quantity %><br>
+    <%= form.number_field :quantity %>
+  </p>
+  
+  <p>
+    <%= form.label :total %><br>
+    <%= form.text_field :total %>
+  </p>
+  <p>
+    <%= form.submit "Add To cart" %>
+  </p>
+
+<% end %>
+
+
+
+
+

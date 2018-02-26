@@ -1,0 +1,61 @@
+
+<h1>New Products</h1>
+
+<%= form_for @mobile, url: mobiles_path, html: { multipart: true } do |form| %>
+
+  <% if @mobile.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+       <%= pluralize(@mobile.errors.count, "error") %> prohibited
+       this Data from being saved:
+      </h2>
+      <ul>
+        <% @mobile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :phone%><br>
+    <%= form.text_field :phone %>
+  </p>
+
+
+  <p>
+    <%= form.label :mtype%><br>
+    <%= form.text_field :mtype %>
+  </p>
+
+  <p>
+    <br>
+    <%= form.file_field :image %>
+  </p>
+
+  <p>
+    <%= form.label :price%><br>
+    <%= form.text_field :price %>
+  </p>
+  <br>
+
+  <p>
+    <%= form.label :description%><br>
+    <%= form.text_area :description %>
+  </p>
+<br>
+
+
+
+  <br>
+  <p>
+    <%= form.submit "Add new Products" %>
+  </p>
+<%end%>
+<%= link_to 'Back', mobiles_path %> 
+</div>
+</body>
+<html>
+
+
+
+

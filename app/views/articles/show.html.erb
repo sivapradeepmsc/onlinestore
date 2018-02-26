@@ -58,37 +58,26 @@ body {margin:0;}
 </div>
 <table  align="center">
 <th>
-
 <h2>Add Your Reviews:</h2>
 <%= render 'comments/form' %>
 <p>
-  <strong>Product:</strong>
-  <%= @article.title %>
-</p>
- 
+
+<strong>Product:</strong>
+<%= @article.title %>
+</p> 
+
 <p>
-  <strong>Model_name:</strong>
-  <%= @article.text %>
+<strong>Model_name:</strong>
+<%= @article.text %>
 </p>
  
 <h2>Reviews</h2>
 <%= render @article.comments %>
-
   <div class="field">
-    
-    <%= link_to image_tag(@article.image.url(:medium)), @article.image.url %>
- 
-   
-      <%= image_tag @article.image.url %>
-
-      
-    
-
-
- 
- 
+  <%= link_to image_tag(@article.image.url(:medium)), @article.image.url %> 
+  <%= image_tag @article.image.url %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %></th>
 </table>
-  </body>
+</body>
 </html>

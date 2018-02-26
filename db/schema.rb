@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213092957) do
+ActiveRecord::Schema.define(version: 20180226122348) do
+
+  create_table "addcarts", force: :cascade do |t|
+    t.string "image"
+    t.text "feauters"
+    t.text "product"
+    t.string "price"
+    t.string "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -22,6 +32,17 @@ ActiveRecord::Schema.define(version: 20180213092957) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "price"
+    t.text "description"
+  end
+
+  create_table "bags", force: :cascade do |t|
+    t.decimal "quantity"
+    t.decimal "total"
+    t.integer "pice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pice_id"], name: "index_bags_on_pice_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -31,6 +52,51 @@ ActiveRecord::Schema.define(version: 20180213092957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "mobiles", force: :cascade do |t|
+    t.text "phone"
+    t.string "image"
+    t.decimal "price"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.text "Mtype"
+  end
+
+  create_table "pens", force: :cascade do |t|
+    t.text "phone"
+    t.string "mtype"
+    t.decimal "price"
+    t.text "description"
+    t.decimal "quantity"
+    t.decimal "total"
+    t.integer "pice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pice_id"], name: "index_pens_on_pice_id"
+  end
+
+  create_table "pices", force: :cascade do |t|
+    t.text "phone"
+    t.string "mtype"
+    t.decimal "price"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ships", force: :cascade do |t|
+    t.decimal "price"
+    t.decimal "total"
+    t.integer "mobiles_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mobiles_id"], name: "index_ships_on_mobiles_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -65,7 +65,6 @@
 }
 </style>
 </head>
-<body>
 
 <div class="navbar">
   <a href="#home"><%= link_to 'Home', welcome_index_path%></a>
@@ -89,7 +88,7 @@
  
 
 
-  </body>
+  
 <br><br><h1 align="center">baserbox.com</h1><br><br><br><br><br>
 
 
@@ -101,9 +100,6 @@
 
 <%= form_for @article, url: articles_path, html: { multipart: true } do |form| %>
 
- 
-
- 
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -111,14 +107,12 @@
         this Data from being saved:
       </h2>
       <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
-
- 
   <p>
     <%= form.label :product%><br>
     <%= form.text_field :title %>
@@ -136,21 +130,28 @@
   </p>
 
   <p>
+    <%= form.label :Price%><br>
+    <%= form.text_field :text %>
+  </p>
+  <br>
+
+  <p>
+    <%= form.label :Describtion%><br>
+    <%= form.text_area :text %>
+  </p>
+<br>
+
+
+
+  <br>
+  <p>
     <%= form.submit "Add new Products" %>
   </p>
-
- 
-
 <%end%>
- 
 <%= link_to 'Back', articles_path %> 
 </div>
 </body>
 <html>
-
-
-
-
 
 
 

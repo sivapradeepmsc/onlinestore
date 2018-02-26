@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone: MyText
+  mtype: MyString
+  price: 9.99
+  description: MyText
+  quantity: 9.99
+  total: 9.99
+  pice: one
+
+two:
+  phone: MyText
+  mtype: MyString
+  price: 9.99
+  description: MyText
+  quantity: 9.99
+  total: 9.99
+  pice: two

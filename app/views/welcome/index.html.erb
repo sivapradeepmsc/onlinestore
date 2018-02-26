@@ -38,7 +38,7 @@
     background-color: green;
 }
 
-.dropdown-content {
+.dropdown-contents {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -47,7 +47,7 @@
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-contents a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -56,11 +56,11 @@
     text-align: left;
 }
 
-.dropdown-content a:hover {
+.dropdown-contents a:hover {
     background-color: #88cc00;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-contents {
     display: block;
 }
 </style>
@@ -70,6 +70,18 @@
 <div class="navbar">
   <%= link_to 'Home', welcome_index_path%></a>
   <%= link_to 'Admin', articles_path %>	</a>
+  <%= link_to 'Mobile', pices_path %> </a>
+
+<div class="dropdown">
+    <button class="dropbtn">Catogories 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-contents">
+      <a href="#sdfds">Mobile</a>
+      <a href="#">Electronics</a>
+      <a href="#">Cloths</a>
+    
+    </div>
   
 <%if user_signed_in? %>
 <%= link_to current_user.email,edit_user_registration_path %></a> 
@@ -79,16 +91,6 @@
  <%= link_to 'Login', new_user_session_path %></a>  
   <% end%>
   
-<div class="dropdown">
-    <button class="dropbtn">Catogories 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Mobile</a>
-      <a href="#">Electronics</a>
-      <a href="#">Cloths</a>
-    
-    </div>
 
 
  
@@ -103,6 +105,7 @@
 
   </body>
 <br><br><h1 align="center">baserbox.com</h1><br><br><br><br><br>
+
 
 </body>
 <html>

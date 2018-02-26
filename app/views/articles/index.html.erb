@@ -55,20 +55,25 @@ body {margin:0;}
  
 <input type="text" placeholder="What u want?">
 </div>
-  </body>
+</body>
 <br><br><br><h1 align="center">List of our products!!</h1>
 <h1 align="center">user Reviews are Welcome</h1>  
 <table  align="center">
   <tr>
    <th>Product</th>
+   
    <th>Name</th>
-   <th colspan="3"></th>
+   <th colspan="5"></th>
    </tr>
   <% @articles.each do |article| %>
     <tr>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
-    <td> <%= image_tag article.image.url%></td>
+
+
+    <td> <%= image_tag article.image.url,:size => "260x220"%></td>
+    <td><%= article.price %></td>
+    <td><%= article.description %></td>
     
     <td><%= link_to 'Give rate', article_path(article) %></td>
     <td> <%= link_to 'Edit', edit_article_path(article) %></td>
