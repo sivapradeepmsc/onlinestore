@@ -1,9 +1,18 @@
 class PensController < ApplicationController
+	def show
+	    @pen = Pen.find(params[:id])
+
+	end
+
+
 	def create
     @pice = Pice.find(params[:pice_id])
-    total=@pice.price * params[:pen][:quantity]
+    params[:pen][:total]=@pice.price.to_f*params[:pen][:quantity].to_f
+
     @pen = @pice.pens.create(pens_params)
     redirect_to pice_path(@pice) 
+
+
   end
  
   def destroy

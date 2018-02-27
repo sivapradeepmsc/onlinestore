@@ -14,6 +14,11 @@ class PicesController < ApplicationController
   def edit
     @pice = Pice.find(params[:id])
   end
+  def cartdet
+    
+    @pice = Pice.new
+
+  end
 
   def  create
     @pice = Pice.new(pice_params)  

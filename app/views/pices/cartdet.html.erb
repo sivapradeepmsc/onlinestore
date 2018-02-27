@@ -65,12 +65,12 @@
 }
 </style>
 </head>
+<body>
 
 <div class="navbar">
   <a href="#home"><%= link_to 'Home', welcome_index_path%></a>
-  <a href="#Products"><%= link_to 'Admin', articles_path %>	</a>
-  <%= link_to 'Mobile', new_pice_path %> 
-  
+  <a href="#Products">admin</a>
+  <a href="#">Reviews</a>
   <a href="#news">sign-up</a>  
 <div class="dropdown">
     <button class="dropbtn">Catogories 
@@ -89,71 +89,45 @@
  
 
 
-  
+  </body>
 <br><br><h1 align="center">baserbox.com</h1><br><br><br><br><br>
 
 
-<body bgcolor="#edfg">
+<body >
 <div class="boxed" align="center">
 <p align="center">
 
-<h1>New Products</h1>
+<h1>Edit Products Details</h1>
 
-<%= form_for @article, url: articles_path, html: { multipart: true } do |form| %>
 
-  <% if @article.errors.any? %>
+<body bgcolor="#eee">
+  <%= form_for @pice, url: pices_path, html: { multipart: true } do |form| %>
+    <%= form_with (model: @pice) do |form| %>
+
+ 
+<% if @pice.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this Data from being saved:
+        <%= pluralize(@pice.errors.count, "error") %> prohibited
+        this mobile from being saved:
       </h2>
       <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= form.label :product%><br>
-    <%= form.text_field :title %>
-  </p>
-
-
-  <p>
-    <%= form.label :text%><br>
-    <%= form.text_field :text %>
-  </p>
-
-  <p>
-    <br>
-    <%= form.file_field :image %>
-  </p>
-
-  <p>
-    <%= form.label :Price%><br>
-    <%= form.text_field :text %>
-  </p>
-  <br>
-
-  <p>
-    <%= form.label :Describtion%><br>
-    <%= form.text_area :text %>
-  </p>
-<br>
-
-
-
-  <br>
-  <p>
-    <%= form.submit "Add new Products" %>
-  </p>
-<%end%>
-<%= link_to 'Back', articles_path %> 
+        <% @pice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+       </div>
+       <% end %>
+ 
+  
+                 <%= pice.phone %>
+                 <%= pice.mtype %>
+                 <%= pice.price %> 
+                  <p><%= form.submit "Add To cart" %></p>     
+ 
+<%= link_to 'Back', pices_path %>    
+<% end %>
+<% end %>
 </div>
 </body>
 <html>
-
-
-
-

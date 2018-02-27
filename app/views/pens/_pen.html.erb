@@ -1,0 +1,12 @@
+<p>
+  <strong>Quantity:</strong>
+  <%= pen.quantity %>
+</p>
+ 
+<p>
+  <strong>Total Amount:</strong>
+  <%= pen.total %>
+</p>
+<%= link_to 'Clear', [pen.pice, pen],
+               method: :delete  %>
+
