@@ -1,59 +1,18 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {margin:0;}
-
-.navbar {
-  overflow: hidden;
-  background-color: green;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: green;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: green;
-  color: green;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; 
-}
-
-.topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 6px;
-    margin-right: 16px;
-    font-size: 17px;
-}
-
-</style>
 </head>
 <body>
 <div class="navbar">
-  <a href="#Home"><%= link_to 'Home', welcome_index_path%></a>
-  <a href="#Products"><%= link_to 'products', articles_path %></a>
-  <a href="#Customer"><%= link_to 'Add_New_Products', new_article_path %></a>
-  <a href="http://localhost:3000/articles/6/edit"> updates</a>
-  <a href="#Other services">Add Cart details</a>
-  <a href="http://localhost:3000/sessions/new">sign up</a>
- 
-<input type="text" placeholder="What u want?">
+  <%= link_to 'Home', welcome_index_path%>
+  <%= link_to 'products', articles_path %>
+  <%= link_to 'Add_New_Products', new_article_path %>
+  
+
+<%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search cloths" %>
+<%= submit_tag "Search" %>
+<% end %>
 </div>
 </body>
 <br><br><br><h1 align="center">List of our products!!</h1>

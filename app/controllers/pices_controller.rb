@@ -1,17 +1,15 @@
 class PicesController < ApplicationController
-	
-
 
 def index
-  @pices = Pice.all
-@search =params[:id]
-
-if @pice
-   Pice.where('id LIKE ? AND id LIKE ?', "%#{params[:id]}%")
+  
+@pices = Pice.all.paginate(:page => params[:page], per_page: 3)  
+ if params[:search]
+    @pices = Pice.search(params[:search]).order("created_at DESC").all.paginate(:page => params[:page], per_page: 3)  
+  else
+    @pices = Pice.all.order('created_at DESC').all.paginate(:page => params[:page], per_page: 3)  
+  end
+  
 end
-end
-
-
 
    def show
     @pice = Pice.find(params[:id])
@@ -34,14 +32,13 @@ end
     @pice = Pice.new(pice_params)  
  
     if @pice.save
-      redirect_to @pice
+      redirect_to pices_path
+
     else
       render 'new'
     end
     
   end
-
-
 
   def update
     @pice = Pice.find(params[:id])
@@ -63,5 +60,4 @@ end
     def pice_params
       params.require(:pice).permit(:phone, :mtype,:price,:description)
     end
-
 end

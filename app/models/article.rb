@@ -10,6 +10,11 @@ class Article < ApplicationRecord
 	                          
  					                   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  def self.search(search)
+  where("title LIKE ?", "%#{search}%") 
+  
+end
+
   
 end
 

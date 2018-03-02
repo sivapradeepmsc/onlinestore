@@ -2,48 +2,6 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {margin:0;}
-
-.navbar {
-  overflow: hidden;
-  background-color: green;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: green;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: green;
-  color: green;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; 
-}
-
-.topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 6px;
-    margin-right: 16px;
-    font-size: 17px;
-}
-
-</style>
 </head>
 <body>
 <div class="navbar">
@@ -75,7 +33,7 @@ body {margin:0;}
 <%= render @article.comments %>
   <div class="field">
   <%= link_to image_tag(@article.image.url(:medium)), @article.image.url %> 
-  <%= image_tag @article.image.url %>
+  
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %></th>
 </table>

@@ -1,37 +1,6 @@
-<%= form_with model: @pice, local: true do |form| %>
-  <% if @pice.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@pice.errors.count, "error") %> prohibited
-        this data from being saved:
-      </h2>
-      <ul>
-        <% @pice.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
 
-  <p>
-    <%= form.label :image %><br>
-    <%= form.file.field :image %>
-  </p>
-
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
+<% if @pices.present? %>
+  <%= render @pices %>
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
 <% end %>

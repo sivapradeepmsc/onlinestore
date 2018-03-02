@@ -2,98 +2,15 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.navbar {
-    overflow: hidden;
-    background-color: orange;
-    font-family: Arial;
-}
-
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font: inherit;
-    margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: green;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-</style>
 </head>
 
 <div class="navbar">
   <a href="#home"><%= link_to 'Home', welcome_index_path%></a>
   <a href="#Products"><%= link_to 'Admin', articles_path %>	</a>
   <%= link_to 'Mobile', new_pice_path %> 
-  
-  <a href="#news">sign-up</a>  
-<div class="dropdown">
-    <button class="dropbtn">Catogories 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Mobile</a>
-      <a href="#">Electronics</a>
-      <a href="#">Cloths</a>
-    </div>
-
-
-  </div> <br>
-<input type="text" placeholder="Search..."></div>
-
- 
-
-
-  
-<br><br><h1 align="center">baserbox.com</h1><br><br><br><br><br>
-
-
-<body bgcolor="#edfg">
+  </div>
+<br><br><h1 align="center">baserbox.com</h1><br><br>
+<body>
 <div class="boxed" align="center">
 <p align="center">
 
@@ -141,9 +58,6 @@
     <%= form.text_area :text %>
   </p>
 <br>
-
-
-
   <br>
   <p>
     <%= form.submit "Add new Products" %>
