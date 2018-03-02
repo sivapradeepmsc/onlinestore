@@ -1,7 +1,17 @@
 class PicesController < ApplicationController
-	def index
-    @pices = Pice.all
-      end
+	
+
+
+def index
+  @pices = Pice.all
+@search =params[:id]
+
+if @pice
+   Pice.where('id LIKE ? AND id LIKE ?', "%#{params[:id]}%")
+end
+end
+
+
 
    def show
     @pice = Pice.find(params[:id])

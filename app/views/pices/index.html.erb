@@ -94,8 +94,17 @@
       <a href="#">Cloths</a>
     
     </div>
-  </div> <br>
-<input type="text" placeholder="Search..."></div>
+  </div>
+   <br>
+<% form_tag pices_path, :method => 'get' do %>
+ <p>
+ <%= text_field_tag :search, params[:search] %>
+ <%= submit_tag "Search", :name => nil %>
+ </p>
+<% end %>
+
+
+
 </head>
   <body>
 <!-- Page Content -->
