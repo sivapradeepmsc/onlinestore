@@ -34,7 +34,7 @@ end
 
    private
     def pens_params
-      params.require(:pen).permit(:phone, :mtype,:price,:description,:quantity, :total,:tquantity,:tprice)
+      params.require(:pen).permit(:phone,:mtype,:price,:description,:quantity, :total,:tquantity,:tprice)
     end
 
 end

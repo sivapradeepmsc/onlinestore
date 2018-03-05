@@ -16,7 +16,11 @@
      </div>
 </div>
     </div>
-<table><p>
+
+  <b>Price:</b>
+<a><%= @pen.price %></td><br>
+ 
+<p>
   <th><strong>Quantity:</strong></th>
    <td> <%= @pen.quantity %></td>
 </p>
@@ -25,8 +29,6 @@
  <th> <strong>Total Amount:</strong></th>
 <td>  <%= @pen.total %></td>
 </p>
-
-</table>
 
 <%= link_to 'Empty Cart', [@pen],
                method: :delete  %>
