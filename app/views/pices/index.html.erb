@@ -9,6 +9,7 @@
     <a href="Home">Admin</a>
     <a href="Home">Sig-in</a>
     <a href="Home">logout</a>
+    <%= link_to 'Add_cart_details', pens_path %> 
 
 <%= form_tag(pices_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Pices" %>

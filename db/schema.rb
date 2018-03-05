@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226122348) do
+ActiveRecord::Schema.define(version: 20180305070646) do
 
   create_table "addcarts", force: :cascade do |t|
     t.string "image"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20180226122348) do
     t.integer "pice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "tquantity"
+    t.decimal "tprice"
     t.index ["pice_id"], name: "index_pens_on_pice_id"
   end
 

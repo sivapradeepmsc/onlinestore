@@ -1,5 +1,8 @@
 class PicesController < ApplicationController
 
+
+ before_action :authenticate_user!
+
 def index
   
 @pices = Pice.all.paginate(:page => params[:page], per_page: 3)  
@@ -8,11 +11,13 @@ def index
   else
     @pices = Pice.all.order('created_at DESC').all.paginate(:page => params[:page], per_page: 3)  
   end
-  
+            
+
 end
 
    def show
     @pice = Pice.find(params[:id])
+    
   end
 
   def new
@@ -21,11 +26,6 @@ end
  
   def edit
     @pice = Pice.find(params[:id])
-  end
-  def cartdet
-    
-    @pice = Pice.new
-
   end
 
   def  create
@@ -52,9 +52,13 @@ end
    def destroy
     @pice = Pice.find(params[:id])
     @pice.destroy
- 
-    redirect_to pices_path
+     redirect_to pices_path
   end
+
+
+def show_pens
+  @pen = Pen.find(params[:id])
+end
  
   private
     def pice_params

@@ -16,23 +16,5 @@
      </div>
 </div>
     </div>
-<table><p>
-  <th><strong>Quantity:</strong></th>
-   <td> <%= @pen.quantity %></td>
-</p>
- 
-<p>
- <th> <strong>Total Amount:</strong></th>
-<td>  <%= @pen.total %></td>
-</p>
 
-</table>
-
-<%= link_to 'Empty Cart', [@pen],
-               method: :delete  %>
-<%= link_to 'Continue_shoping', pices_path %> 
-<%= link_to 'Add_cart_details', pens_path %> 
-
-
-
-
+<%= render @pens %> 
