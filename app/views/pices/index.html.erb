@@ -6,9 +6,15 @@
     <title>Shop Homepage -</title>
     <div class="navbar">
     <%= link_to 'Home', welcome_index_path %> </a>
-    <a href="Home">Admin</a>
-    <a href="Home">Sig-in</a>
-    <a href="Home">logout</a>
+<%if user_signed_in? %>
+<%= link_to current_user.email,edit_user_registration_path %></a> 
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<else>
+  <%= link_to 'sign-up', new_user_registration_path %></a> 
+ <%= link_to 'Login', new_user_session_path %></a>  
+ <% end%>
+ 
+
     <%= link_to 'Add_cart_details', pens_path %> 
 
 <%= form_tag(pices_path, :method => "get", id: "search-form") do %>
@@ -16,10 +22,10 @@
 <%= submit_tag "Search" %>
 <% end %>
 </head>
-  <body>
+  
      </div>
-</div>
-    </div><table>
+</div></div>
+    </div><body><table>
      <% @pices.each do |pice| %>
       <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">

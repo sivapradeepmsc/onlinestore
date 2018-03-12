@@ -11,12 +11,14 @@
     <a href="Home">Sig-in</a>
     <a href="Home">logout</a>
     <%= link_to 'Add_cart_details', pens_path %> 
-    
+    CART:(<%= @pen.tquantity %> )
+    (<%= @pen.tprice %>)
     </head>
   <body>
      </div>
 </div>
     </div>
-    
+</div>
+ 
+<%= link_to 'Continue_shoping', pices_path %> 
 
-<%= render @pens %> 

@@ -12,7 +12,6 @@ def index
     @pices = Pice.all.order('created_at DESC').all.paginate(:page => params[:page], per_page: 3)  
   end
             
-
 end
 
    def show

@@ -12,7 +12,12 @@ resources :pices do
 resources :pens 
 end
 
-resources :pens
+resources :pens do
+	resources :pices
+end
+#resources :pens
+post '/pens/:id',to:'pens#clear'
+ 
        
 root 'welcome#index'
 

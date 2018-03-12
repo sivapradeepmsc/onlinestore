@@ -7,19 +7,32 @@
     <title>Shop Homepage -</title>
     <div class="navbar">
     <%= link_to 'Home', welcome_index_path %> </a>
-    <a href="Home">Admin</a>
-    <a href="Home">Sig-in</a>
-    <a href="Home">logout</a>
+<%if user_signed_in? %>
+<%= link_to current_user.email,edit_user_registration_path %></a> 
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<else>
+  <%= link_to 'sign-up', new_user_registration_path %></a> 
+ <%= link_to 'Login', new_user_session_path %></a>  
+ <% end%>
+ 
     <%= link_to 'Add_cart_details', pens_path %> 
+    CART:(<%= @pen.tquantity %> )
+    (<%= @pen.tprice %>)
     </head>
   <body>
      </div>
 </div>
     </div>
+</div> 
 
-  <b>Price:</b>
+ <b>Phone name:</b>
+<a><%= @pen.phone %></a> <br>
+<b>Price:</b>
 <a><%= @pen.price %></td><br>
- 
+ <b> feautres:</b>
+<td><%= @pen.description %></td><br>
+<b>Phone_model:</b>
+<td><%= @pen.mtype %></td>  </a></p>
 <p>
   <th><strong>Quantity:</strong></th>
    <td> <%= @pen.quantity %></td>
@@ -29,12 +42,9 @@
  <th> <strong>Total Amount:</strong></th>
 <td>  <%= @pen.total %></td>
 </p>
-
-<%= link_to 'Empty Cart', [@pen],
-               method: :delete  %>
+<%= button_to 'Empty Cart', pen_path(@pen),
+               method: :clear  %>               
+            
 <%= link_to 'Continue_shoping', pices_path %> 
 <%= link_to 'Add_cart_details', pens_path %> 
-
-
-
 

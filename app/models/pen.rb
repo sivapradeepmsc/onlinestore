@@ -1,6 +1,6 @@
 class Pen < ApplicationRecord
   belongs_to :pice
-
+  
 
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
@@ -17,18 +17,32 @@ class Pen < ApplicationRecord
     end
   end
 
+  def phone
+     pice.phone
+  end
+
+  def mtype
+     pice.mtype
+  end
+
+  def description
+     pice.description
+  end
+
   def total
     price.to_f * quantity.to_f
   end
 
   def tprice
-  	price.to_f + price.to_f
-  self[:tprice].to_f.sum=self[:total]
+      Pen.sum(:price)
   end
 
+  def tquantity
+      Pen.sum(:quantity)
+  end
+  
+
 private
-
-
   def pen_present
     if quantity.nil?
       errors.add(:Pen, "is not a valid order.")
@@ -38,8 +52,6 @@ private
   def finalize
     self[:price] = price.to_f
     self[:total] = quantity.to_f * self[:price]
-  #self[:tprice].to_a.sum = total.to_f
 
-#quantity.to_a.sum { |price| price.tprice }
   end
 end
